@@ -1,3 +1,20 @@
+/*
+This file is part of xpeppers.phoneBook
+
+   Copyright 2015 Micheli Luca
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+ */
 package com.xpeppers.phonebook;
 
 import java.util.ArrayList;
@@ -157,8 +174,11 @@ public class MainActivity extends Activity {
 				@Override
 				public void onTextChanged(CharSequence s, int start,
 						int before, int count) {
+					if (s.length()==0){
+						adapter.resetData();
+					}
 					// Call back the Adapter with current character to Filter
-					if ((count < before) || (s.length() == 0)) {
+					if ((count < before)) {
 						// We're deleting char so we need to reset the adapter
 						// data
 						adapter.resetData();
